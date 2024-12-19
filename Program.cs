@@ -1,4 +1,7 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Drawing;
+using System;
+using System.Runtime.CompilerServices;
+using System.Xml;
 
 namespace MyDotNetApp
 {
@@ -6,6 +9,39 @@ namespace MyDotNetApp
     {
         static void Main(string[] args)
         {
+            // Part 2 - Variables / Data Types
+            // C# Data Types
+            object o;
+            string s;
+            dynamic d;
+            var v = "0";
+            Nullable<int> n = null;
+            Enum e;
+            Array a;
+            Tuple<int, string> t;
+            ValueTuple<int, string> vt;
+            // anonymous types ...
+
+            // .NET Data Types
+            Boolean b1;
+            Byte b2;
+            Char c1;
+            DateTime dt;
+            Decimal d1;
+            Double d2;
+            Guid g1;
+            Int16 i16; // short
+            Int32 i32; // int
+            Int64 i64; // long
+            SByte sb;
+            Single s1; // float
+            String s2;
+            TimeSpan ts;
+            UInt16 ui16; // ushort
+            UInt32 ui32; // uint
+            UInt64 ui64; // ulong
+
+
             string name = string.Empty;
 
             while (string.IsNullOrEmpty(name))
