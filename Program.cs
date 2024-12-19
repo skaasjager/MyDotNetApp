@@ -1,7 +1,18 @@
-﻿using System.Drawing;
-using System;
-using System.Runtime.CompilerServices;
-using System.Xml;
+﻿using MyDotNetApp;
+
+/*
+ * Part 3 - Six types of modifiers
+ * 
+ * Public               Can be accessed from anywhere. Not ideal if you don’t want to expose a method or property to other classes.
+ * Private              Can only be used in its own class or struct.
+ * Protected	        Can only be accessed from the same class and its derived classes.
+ * Internal protected	Can be accessed from the same assembly and the derived class of the containing class from any other assembly.
+ * Internal             Can only be accessed from within the same assembly.
+ * Private protected    Can only be accessed within the same class, and its derived class within the same assembly.
+ * 
+ * Follow the Single Responsibility Principle (SRP):
+ *  https://en.wikipedia.org/wiki/Single-responsibility_principle
+ */
 
 namespace MyDotNetApp
 {
@@ -9,7 +20,20 @@ namespace MyDotNetApp
     {
         static void Main(string[] args)
         {
-            // Part 2 - Variables / Data Types
+            MyDotNetApp.NameClass nameClass = new();
+
+            while(string.IsNullOrEmpty(nameClass.Name))
+            {
+                nameClass.GetName();
+            }
+
+            nameClass.GetLastname();
+
+            nameClass.ShowName();
+        }
+
+        private void Part2()
+        {
             // C# Data Types
             object o;
             string s;
@@ -40,44 +64,6 @@ namespace MyDotNetApp
             UInt16 ui16; // ushort
             UInt32 ui32; // uint
             UInt64 ui64; // ulong
-
-
-            string name = string.Empty;
-
-            while (string.IsNullOrEmpty(name))
-            {
-                name = GetName();
-            }
-
-            ShowName(name);
-        }
-
-        private static void ShowName(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new Exception("Name cannot be empty!");
-
-            }
-
-            Console.WriteLine($"Hello, welcome {name}!");
-        }
-
-        private static string GetName()
-        {
-            Console.Write("Type your name and press enter: ");
-
-            string name = Console.ReadLine();
-
-            if (string.IsNullOrEmpty(name))
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Name cannot be empty!");
-                Console.WriteLine("");
-                return string.Empty;
-            }
-
-            return name;
         }
     }
 }
